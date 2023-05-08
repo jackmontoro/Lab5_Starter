@@ -22,7 +22,7 @@ function init() {
 
   // volume control variables
   volImage = document.querySelector("img[alt='Volume level 2']");
-  volControl = document.querySelector("range[id='volume']");
+  volControl = document.querySelector("input[id='volume']");
 
   // button-related variables
   buttonPress = document.querySelector('button');
