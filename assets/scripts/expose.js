@@ -22,7 +22,7 @@ function init() {
 
   // volume control variables
   volImage = document.querySelector("img[alt='Volume level 2']");
-  volControl = document.querySelector("input[id='volume']");
+  volControl = document.getElementById("volume");
 
   // button-related variables
   buttonPress = document.querySelector('button');
@@ -53,15 +53,15 @@ function init() {
   });
 
   // Listener to change volume and volume picture
-  volControl.addEventListener("change", (event) => {
-    sound.volume = event.target.value / 100;
-    if (event.target.value == 0){
+  volControl.addEventListener("change", () => {
+    sound.volume = volControl.value / 100;
+    if (volControl.value == 0){
       volImage.src="assets/icons/volume-level-0.svg";
     }
-    else if (event.target.value < 33) {
+    else if (volControl.value < 33) {
       volImage.src="assets/icons/volume-level-1.svg";
     }
-    else if (event.target.value < 67) {
+    else if (volControl.value < 67) {
       volImage.src="assets/icons/volume-level-2.svg";
     }
     else {
