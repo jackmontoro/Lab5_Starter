@@ -38,17 +38,18 @@ function init() {
 
   // Listener to change image and sound when new sound selected
   hornChoice.addEventListener('change', (event) => {
-    switch(event.target.value) {
-      case 'party-horn':
+      if (event.target.value == "party-horn") {
         hornImage.src="assets/images/party-horn.svg";
         sound.src="assets/audio/party-horn.mp3";
-      case 'car-horn':
+      }
+      if (event.target.value == "car-horn") {
         hornImage.src = "assets/images/car-horn.svg";
         sound.src="assets/audio/car-horn.mp3";
-      case 'air-horn':
+      }
+      if (event.target.value == "air-horn"){
         hornImage.src = "assets/images/air-horn.svg";
         sound.src="assets/audio/air-horn.mp3";
-    }
+      }
   });
 
   // Listener to change volume and volume picture
