@@ -16,20 +16,13 @@ function init() {
   smileFace = document.querySelector("img[alt='Smiling face']");
 
 
-  function initializeVoiceSelector() {
-    for(let i = 0; i < voiceList.length; i++) {
-      const voice = document.createElement("option");
-      voice.textContent = `${voiceList[i].name} (${voiceList[i].lang})`;
-      voice.setAttribute("data-lang", voiceList[i].lang);
-      voice.setAttribute("data-name", voiceList[i].name);
-      voiceList.appendChild(voice);
-    }
+  for(let i = 0; i < voiceList.length; i++) {
+    const voice = document.createElement("option");
+    voice.textContent = `${voiceList[i].name} (${voiceList[i].lang})`;
+    voice.setAttribute("data-lang", voiceList[i].lang);
+    voice.setAttribute("data-name", voiceList[i].name);
+    voiceList.appendChild(voice);
   }
-
-  speechSynthesis.addEventListener("voiceschanged", () => {
-    voiceList = spSynth.getVoices();
-    initializeVoiceSelector();
-  });
 
   var voiceIndex;
   voiceSelect.addEventListener("change", (event) =>{
