@@ -10,7 +10,6 @@ var play;
 
 
 function init() {
-  initializeVoiceSelector();
   voiceSelect = document.getElementById("voice-select");
   const spSynth = window.speechSynthesis;
 
@@ -24,7 +23,7 @@ function init() {
       for(let i = 0; i < voiceList.length; i++) {
         const voice = document.createElement("option");
         voice.textContent = `${voiceList[i].name} (${voiceList[i].lang})`;
-        voice.setAttribute("data-lang", voiceList[i].lang);
+        voice.setAttribute("value", voiceList[i].name);
         voice.setAttribute("data-name", voiceList[i].name);
         voiceSelect.appendChild(voice);
       }
