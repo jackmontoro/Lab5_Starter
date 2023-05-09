@@ -31,11 +31,6 @@ function init() {
     };
   };
 
-  var voiceIndex;
-  voiceSelect.addEventListener("change", function(){
-    voiceIndex = voiceSelect.options[voiceSelect.selectedIndex].index;
-  });
-
   
   play = document.querySelector("button");
 
@@ -49,7 +44,12 @@ function init() {
     utter.onend = function() {
       smileFace.src="./assets/images/smiling.png";
     };
-    utter.voice = voiceList[voiceIndex-1];
+    let selectedVoice = voiceSelect.selectedOptions[0].getAttribute("data-name");
+    for (let i = 0; i < voiceList.length; i++) {
+      if (voiceList[i].name === selectedVoice){
+        utter.voice = voiceList[i];
+      }
+    }
 
     spSynth.speak(utter);
   });
