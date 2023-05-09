@@ -19,18 +19,20 @@ function init() {
 
 
   window.onload = function() {
-    voiceList = spSynth.getVoices();
-    for(let i = 0; i < voiceList.length; i++) {
-      const voice = document.createElement("option");
-      voice.textContent = `${voiceList[i].name} (${voiceList[i].lang})`;
-      voice.setAttribute("data-lang", voiceList[i].lang);
-      voice.setAttribute("data-name", voiceList[i].name);
-      voiceSelect.appendChild(voice);
-    }
-  }
+    window.speechSynthesis.onvoiceschanged = function() {
+      voiceList = spSynth.getVoices();
+      for(let i = 0; i < voiceList.length; i++) {
+        const voice = document.createElement("option");
+        voice.textContent = `${voiceList[i].name} (${voiceList[i].lang})`;
+        voice.setAttribute("data-lang", voiceList[i].lang);
+        voice.setAttribute("data-name", voiceList[i].name);
+        voiceSelect.appendChild(voice);
+      }
+    };
+  };
 
   var voiceIndex;
-  voiceSelect.addEventListener("change", (event) =>{
+  voiceSelect.addEventListener("change", function(){
     voiceIndex = voiceSelect.options[voiceSelect.selectedIndex].index;
   });
 
