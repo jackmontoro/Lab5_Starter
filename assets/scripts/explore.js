@@ -52,7 +52,7 @@ function init() {
       };
       utter.voice = voiceList[voiceIndex-1];
 
-      window.speechSynthesis.speak(utter);
+      spSynth.speak(utter);
     }
   })
 
