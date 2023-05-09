@@ -12,7 +12,7 @@ function init() {
   const spSynth = window.speechSynthesis;
   let voiceList = [];
 
-  text = document.getElementById("test-to-speak");
+  text = document.getElementById("text-to-speak");
   smileFace = document.querySelector("img[alt='Smiling face']");
 
 
@@ -35,7 +35,7 @@ function init() {
   play = document.querySelector("button");
 
   play.addEventListener("click", function() {
-    text = document.getElementById("test-to-speak");
+    text = document.getElementById("text-to-speak");
     smileFace = document.querySelector("img[alt='Smiling face']");
     let utter = new SpeechSynthesisUtterance(text.value);
     utter.onstart = function() {
