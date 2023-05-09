@@ -21,7 +21,7 @@ function init() {
     voice.textContent = `${voiceList[i].name} (${voiceList[i].lang})`;
     voice.setAttribute("data-lang", voiceList[i].lang);
     voice.setAttribute("data-name", voiceList[i].name);
-    voiceList.appendChild(voice);
+    voiceSelect.appendChild(voice);
   }
 
   var voiceIndex;
