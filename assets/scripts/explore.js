@@ -2,7 +2,6 @@
 
 window.addEventListener('DOMContentLoaded', init);
 
-var voiceSelect;
 var voiceList;
 var smileFace;
 var text;
@@ -10,7 +9,7 @@ var play;
 
 
 function init() {
-  voiceSelect = document.getElementById("voice-select");
+  const voiceSelect = document.getElementById("voice-select");
   const spSynth = window.speechSynthesis;
 
   text = document.getElementById("test-to-speak");
@@ -23,6 +22,7 @@ function init() {
       for(let i = 0; i < voiceList.length; i++) {
         const voice = document.createElement("option");
         voice.textContent = `${voiceList[i].name} (${voiceList[i].lang})`;
+        console.log(`${voiceList[i].name} (${voiceList[i].lang})`)
         voice.setAttribute("value", voiceList[i].name);
         voice.setAttribute("data-name", voiceList[i].name);
         voiceSelect.appendChild(voice);
