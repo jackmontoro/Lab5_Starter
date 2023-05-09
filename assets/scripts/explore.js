@@ -42,18 +42,16 @@ function init() {
   play.addEventListener("click", function() {
     text = document.getElementById("test-to-speak");
     smileFace = document.querySelector("img[alt='Smiling face']");
-    if (text.value != "") {
-      let utter = new SpeechSynthesisUtterance(text.value);
-      utter.onstart = function() {
-        smileFace.src="./assets/images/smiling-open.png";
-      };
-      utter.onend = function() {
-        smileFace.src="./assets/images/smiling.png";
-      };
-      utter.voice = voiceList[voiceIndex-1];
+    let utter = new SpeechSynthesisUtterance(text.value);
+    utter.onstart = function() {
+      smileFace.src="./assets/images/smiling-open.png";
+    };
+    utter.onend = function() {
+      smileFace.src="./assets/images/smiling.png";
+    };
+    utter.voice = voiceList[voiceIndex-1];
 
-      spSynth.speak(utter);
-    }
-  })
+    spSynth.speak(utter);
+  });
 
 }
