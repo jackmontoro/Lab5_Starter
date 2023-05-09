@@ -31,6 +31,11 @@ function init() {
     initializeVoiceSelector();
   });
 
+  var voiceIndex;
+  voiceSelect.addEventListener("change", (event) =>{
+    voiceIndex = voiceSelect.options[voiceSelect.selectedIndex].index;
+  });
+
   
   play = document.querySelector("button");
 
@@ -45,6 +50,9 @@ function init() {
       utter.onend = function() {
         smileFace.src="./assets/images/smiling.png";
       };
+      utter.voice = voiceList[voiceIndex-1];
+
+      window.speechSynthesis.speak(utter);
     }
   })
 
